@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-svc
+spec:
+  type: NodePort              # 讓外部可以透過 Node IP + Port 連進來
+  selector:
+    app: fastapi              # 靠這個 label 找到 Pod（跟 Deployment 裡的一致）
+  ports:
+    - port: 8000              # Service 的 port
+      targetPort: 8000        # 轉到 Pod 裡面的 port（FastAPI 監聽的）

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi
+  template:
+    metadata:
+      labels:
+        app: fastapi
+    spec:
+      containers:
+        - name: fastapi
+          image: yillkid/docker-fastapi:latest
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              cpu: "100m"       # 最低需求 0.1 核
+            limits:
+              cpu: "500m"       # 上限 0.5 核
