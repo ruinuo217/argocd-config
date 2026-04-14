@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: fastapi
-          image: ruinuo/docker-fastapi:8466bfeb9dee0c0600475b318f1c76b922adcdf3
+          image: ruinuo/docker-fastapi:965e2a9147e8a3b4f5e91cd792265ce42bd777e0
           ports:
             - containerPort: 8000
           resources:
